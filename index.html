@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Scholars | Premium Personalized Education & STEM Academy</title>
+    <meta name="description" content="Building future scholars from Pre-K to Grade 8 through personalized learning paths, advanced STEM education, academic mentorship, and confidence-building learning systems.">
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Three.js and OrbitControls -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- GSAP for animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body>
+
+    <!-- Dynamic Canvas for 3D Scene Background -->
+    <div id="three-container"></div>
+
+    <!-- Custom Cursor Glow -->
+    <div id="cursor-glow"></div>
+
+    <!-- Navigation Header -->
+    <header class="main-header glass">
+        <div class="header-container">
+            <a href="#" class="logo" id="header-logo">
+                <span class="logo-icon"><i data-lucide="graduation-cap"></i></span>
+                <span class="logo-text">APEX <span class="accent-text">SCHOLARS</span></span>
+            </a>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#why-us" class="nav-link">Why Choose Us</a></li>
+                    <li><a href="#programs" class="nav-link">Programs</a></li>
+                    <li><a href="#stem" class="nav-link">STEM</a></li>
+                    <li><a href="#framework" class="nav-link">Our Framework</a></li>
+                    <li><a href="#founder" class="nav-link">Founder</a></li>
+                    <li><a href="#metrics" class="nav-link">Metrics</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle dark/light mode">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+                <a href="#contact" class="btn btn-primary">Book Assessment</a>
+                <button class="mobile-nav-toggle" aria-label="Toggle Mobile Menu">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Overlay -->
+    <div class="mobile-menu-overlay glass">
+        <button class="close-mobile-menu" aria-label="Close menu">
+            <i data-lucide="x"></i>
+        </button>
+        <nav class="mobile-nav">
+            <ul>
+                <li><a href="#about" class="mobile-link">About</a></li>
+                <li><a href="#why-us" class="mobile-link">Why Choose Us</a></li>
+                <li><a href="#programs" class="mobile-link">Programs</a></li>
+                <li><a href="#stem" class="mobile-link">STEM</a></li>
+                <li><a href="#framework" class="mobile-link">Our Framework</a></li>
+                <li><a href="#founder" class="mobile-link">Founder</a></li>
+                <li><a href="#metrics" class="mobile-link">Metrics</a></li>
+                <li><a href="#contact" class="mobile-link btn btn-primary">Book Assessment</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+        <div class="hero-content-wrapper container">
+            <div class="hero-text-block">
+                <div class="badge-tag"><i data-lucide="sparkles"></i> Elite Learning Academy</div>
+                <h1 class="hero-headline">Building Future Scholars Through <span class="gradient-text">Personalized Excellence</span></h1>
+                <p class="hero-subheadline">Apex Scholars empowers students from Pre-Elementary through Middle School with personalized instruction, advanced STEM education, academic mentorship, and confidence-building learning systems designed for long-term success.</p>
+                <div class="hero-ctas">
+                    <a href="#contact" class="btn btn-primary btn-lg">Book Free Assessment <i data-lucide="arrow-right"></i></a>
+                    <a href="#programs" class="btn btn-secondary btn-lg">Explore Programs</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Hero Stats Banner -->
+        <div class="hero-stats-banner glass">
+            <div class="stats-container container">
+                <div class="stat-card">
+                    <h3 class="stat-number" data-target="98.8">0%</h3>
+                    <p class="stat-label">Founder Academic Achievement</p>
+                </div>
+                <div class="stat-card border-left">
+                    <h3 class="stat-number" data-target="20">0+</h3>
+                    <p class="stat-label">Subjects Offered</p>
+                </div>
+                <div class="stat-card border-left">
+                    <h3 class="stat-number" data-target="100">0%</h3>
+                    <p class="stat-label">Personalized Learning Plans</p>
+                </div>
+                <div class="stat-card border-left">
+                    <div class="stat-number-text">Pre-K - G8</div>
+                    <p class="stat-label">Supported Learning Levels</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section section-padding" id="about">
+        <div class="container grid-2">
+            <div class="about-text-block">
+                <div class="section-badge">ABOUT APEX SCHOLARS</div>
+                <h2 class="section-title">More Than Tutoring.<br><span class="gradient-text">A Complete Learning Ecosystem.</span></h2>
+                <p class="section-desc">Apex Scholars was founded to bridge the gap between traditional classroom instruction and truly personalized learning. Unlike conventional tutoring services, we focus on creating individualized learning pathways that adapt to every student's unique strengths, challenges, interests, and goals.</p>
+                <p class="section-desc">Our core philosophy shifts the educational paradigm from passive memorization to active engagement. Every lesson is meticulously crafted to engage students actively, ensuring concepts are deeply mastered rather than temporarily memorized.</p>
+                
+                <div class="mission-points">
+                    <h4 class="mission-title">Our mission is to help students build:</h4>
+                    <ul class="check-list">
+                        <li><i data-lucide="check-circle-2"></i> Academic mastery & subject confidence</li>
+                        <li><i data-lucide="check-circle-2"></i> Critical thinking & structured logic</li>
+                        <li><i data-lucide="check-circle-2"></i> Complex problem-solving skills</li>
+                        <li><i data-lucide="check-circle-2"></i> Lifelong intellectual curiosity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Timeline Block -->
+            <div class="about-timeline-block">
+                <h3 class="timeline-title-heading">The Scholar Journey</h3>
+                <div class="timeline">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-item active">
+                        <div class="timeline-dot"><i data-lucide="target"></i></div>
+                        <div class="timeline-content glass">
+                            <h4>1. Assessment</h4>
+                            <p>Diagnostic testing to identify academic gaps, learning styles, and student strengths.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><i data-lucide="user-check"></i></div>
+                        <div class="timeline-content glass">
+                            <h4>2. Learning Profile</h4>
+                            <p>Building a customized educational persona incorporating the student's personal interests.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><i data-lucide="map"></i></div>
+                        <div class="timeline-content glass">
+                            <h4>3. Custom Roadmap</h4>
+                            <p>Mapping out milestones designed to accelerate understanding and build bulletproof confidence.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"><i data-lucide="award"></i></div>
+                        <div class="timeline-content glass">
+                            <h4>4. Mastery & Growth</h4>
+                            <p>Ongoing dynamic lessons, weekly tracking, and milestones achievement for academic success.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-us-section section-padding" id="why-us">
+        <div class="container text-center-header">
+            <div class="section-badge">THE APEX DIFFERENCE</div>
+            <h2 class="section-title">Why Parents Choose Apex Scholars</h2>
+            <p class="section-subtitle">We combine top-tier instructional quality with startup-level technical innovation to deliver an unmatched educational experience.</p>
+        </div>
+
+        <div class="container grid-3 gap-lg">
+            <!-- Card 1 -->
+            <div class="feature-card glass hover-card">
+                <div class="card-icon"><i data-lucide="route"></i></div>
+                <h3>Personalized Learning Plans</h3>
+                <p>Every single student receives a customized learning roadmap, meaning no time is wasted on concepts already mastered or rushed through areas that require deeper support.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="feature-card glass hover-card">
+                <div class="card-icon"><i data-lucide="layers"></i></div>
+                <h3>Multi-Disciplinary Excellence</h3>
+                <p>One unified, premium academy supporting STEM, Advanced Mathematics, Chemistry, Biology, Physics, Humanities, English, and Computational Coding.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="feature-card glass hover-card">
+                <div class="card-icon"><i data-lucide="brain-circuit"></i></div>
+                <h3>Critical Thinking Focus</h3>
+                <p>Our students do not just memorize formulas for tests. We teach them how to think, analyze structures, deconstruct problems, and explain their logical processes.</p>
+            </div>
+            <!-- Card 4 -->
+            <div class="feature-card glass hover-card">
+                <div class="card-icon"><i data-lucide="users"></i></div>
+                <h3>Real Academic Mentorship</h3>
+                <p>Guidance that goes far beyond simple homework assistance. Our mentors foster self-reliance, organizational habits, time management, and resilience.</p>
+            </div>
+            <!-- Card 5 -->
+            <div class="feature-card glass hover-card">
+                <div class="card-icon"><i data-lucide="compass"></i></div>
+                <h3>Interest-Based Methodology</h3>
+                <p>A proprietary instructional framework that aligns complex academic concepts with a student's existing passions (e.g., space, sports, art) to maximize retention.</p>
+            </div>
+            <!-- Card 6 -->
+            <div class="feature-card glass hover-card">
+                <div class="card-icon"><i data-lucide="trending-up"></i></div>
+                <h3>Future-Ready Education</h3>
+                <p>Preparing elementary and middle school students for competitive high school placements, advanced university tracks, and careers in a tech-driven world.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="programs-section section-padding" id="programs">
+        <div class="container text-center-header">
+            <div class="section-badge">OUR PROGRAMS</div>
+            <h2 class="section-title">Academic Tracks Tailored by Level</h2>
+            <p class="section-subtitle">Select a grade division to view our customized curriculums designed to optimize student potential.</p>
+            
+            <div class="program-tabs">
+                <button class="tab-btn active" data-tab="early">Pre-K to Grade 2</button>
+                <button class="tab-btn" data-tab="elementary">Grades 3-5</button>
+                <button class="tab-btn" data-tab="middle">Grades 6-8</button>
+            </div>
+        </div>
+
+        <div class="container program-tabs-content">
+            <!-- Early Learners Program -->
+            <div class="tab-panel active" id="early">
+                <div class="program-layout glass">
+                    <div class="program-info">
+                        <span class="program-badge">FOUNDATIONAL STAGE</span>
+                        <h3>Early Learners Program</h3>
+                        <p class="program-lead-text">Creating an early love for learning and solidifying core literacy, mathematical habits, and observational skills.</p>
+                        
+                        <div class="program-details-grid">
+                            <div class="detail-item">
+                                <div class="detail-icon"><i data-lucide="binary"></i></div>
+                                <div>
+                                    <h4>Foundational Math</h4>
+                                    <p>Number sense, patterns, geometric shapes, spatial awareness, and early arithmetic reasoning.</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i data-lucide="book-open"></i></div>
+                                <div>
+                                    <h4>Reading & Literacy</h4>
+                                    <p>Systematic phonics, vocabulary expansion, reading fluency, and guided text comprehension.</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i data-lucide="microscope"></i></div>
+                                <div>
+                                    <h4>Curiosity-Based Science</h4>
+                                    <p>Interactive nature observations, basic physics properties (sinking/floating), and logic games.</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i data-lucide="smile"></i></div>
+                                <div>
+                                    <h4>Confidence Systems</h4>
+                                    <p>Praising efforts over correctness, fostering communication, and reducing performance anxiety.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-visual-mock">
+                        <div class="curriculum-preview-card glass">
+                            <h4>Focus Areas Breakdown</h4>
+                            <ul class="preview-list">
+                                <li><span>Foundational Mathematics</span> <span class="level-indicator fill-3"></span></li>
+                                <li><span>Reading Fluency & Phonics</span> <span class="level-indicator fill-4"></span></li>
+                                <li><span>Vocabulary & Writing Skills</span> <span class="level-indicator fill-3"></span></li>
+                                <li><span>Comprehension & Listening</span> <span class="level-indicator fill-4"></span></li>
+                                <li><span>Curiosity-Based Science</span> <span class="level-indicator fill-3"></span></li>
+                                <li><span>Confidence Building</span> <span class="level-indicator fill-5"></span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Elementary Success Program -->
+            <div class="tab-panel" id="elementary">
+                <div class="program-layout glass">
+                    <div class="program-info">
+                        <span class="program-badge">DEVELOPING STAGE</span>
+                        <h3>Elementary Success Program</h3>
+                        <p class="program-lead-text">Transitioning from foundational understanding to conceptual analysis, structured writing, and abstract scientific concepts.</p>
+                        
+                        <div class="program-details-grid">
+                            <div class="detail-item">
+                                <div class="detail-icon"><i data-lucide="plus-minus"></i></div>
+                                <div>
+                                    <h4>Mathematics Mastery</h4>
+                                    <p>Complex arithmetic, fractions, decimals, introductory variables, and word problem strategies.</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i data-lucide="dna"></i></div>
+                                <div>
+                                    <h4>Elementary Science</h4>
+                                    <p>Introduction to Life Science, Earth systems, physical energy, and the scientific method.</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i data-lucide="pen-tool"></i></div>
+                                <div>
+                                    <h4>English & Composition</h4>
+                                    <p>Multi-paragraph essays, grammar syntax, advanced vocabulary, and structural literature analysis.</p>
+                                </div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-icon"><i data-lucide="globe-2"></i></div>
+                                <div>
+                                    <h4>Social Studies</h4>
+                                    <p>World geography, introductory civics, community organization, and local historical timelines.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-visual-mock">
+                        <div class="curriculum-preview-card glass">
+                            <h4>Subject Breakdown</h4>
+                            <div class="curriculum-subject-group">
+                                <h5>Mathematics</h5>
+                                <p>Arithmetic, Fractions, Decimals, Pre-Algebra, Problem Solving</p>
+                            </div>
+                            <div class="curriculum-subject-group">
+                                <h5>Science</h5>
+                                <p>Life Science, Earth Science, Physical Science</p>
+                            </div>
+                            <div class="curriculum-subject-group">
+                                <h5>English</h5>
+                                <p>Reading, Writing, Grammar, Vocabulary, Comprehension</p>
+                            </div>
+                            <div class="curriculum-subject-group">
+                                <h5>Social Studies</h5>
+                                <p>Geography, Civics, History</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Middle School Achievement Program -->
+            <div class="tab-panel" id="middle">
+                <div class="program-layout glass">
+                    <div class="program-info">
+                        <span class="program-badge">ADVANCED STAGE</span>
+                        <h3>Middle School Achievement Program</h3>
+                        <p class="program-lead-text">Rigorous academic training preparing scholars for high-school level subjects, scientific inquiry, and computational thinking.</p>
+                        
+                        <div class="accordion-sub-tabs">
+                            <div class="sub-tab-item active" data-sub="m-math">Mathematics</div>
+                            <div class="sub-tab-item" data-sub="m-science">Science</div>
+                            <div class="sub-tab-item" data-sub="m-english">English</div>
+                            <div class="sub-tab-item" data-sub="m-social">Social Sciences</div>
+                            <div class="sub-tab-item" data-sub="m-coding">Coding</div>
+                        </div>
+
+                        <div class="sub-tab-panels">
+                            <div class="sub-panel active" id="m-math">
+                                <h4>Advanced Mathematics</h4>
+                                <p>Designed to accelerate computational proficiency and logical reasoning.</p>
+                                <ul class="bullet-list-2col">
+                                    <li><i data-lucide="chevron-right"></i> Pre-Algebra & Algebra I</li>
+                                    <li><i data-lucide="chevron-right"></i> Coordinate Geometry</li>
+                                    <li><i data-lucide="chevron-right"></i> Trigonometry & Pre-Calc Foundations</li>
+                                    <li><i data-lucide="chevron-right"></i> Mathematical Logic & Proofs</li>
+                                </ul>
+                            </div>
+                            <div class="sub-panel" id="m-science">
+                                <h4>Scientific Disciplines</h4>
+                                <p>Separate, foundational studies across three core sciences.</p>
+                                <ul class="bullet-list-2col">
+                                    <li><i data-lucide="chevron-right"></i> <strong>Physics:</strong> Motion, Forces, Energy, and Waves</li>
+                                    <li><i data-lucide="chevron-right"></i> <strong>Chemistry:</strong> Matter, Atoms, Reactions, Lab Safety</li>
+                                    <li><i data-lucide="chevron-right"></i> <strong>Biology:</strong> Cells, Genetics, Human Systems, Ecology</li>
+                                    <li><i data-lucide="chevron-right"></i> <strong>Inquiry:</strong> Experimental Design, Data Collection</li>
+                                </ul>
+                            </div>
+                            <div class="sub-panel" id="m-english">
+                                <h4>English Language Arts</h4>
+                                <p>Fostering eloquent expression and deep critical reading capabilities.</p>
+                                <ul class="bullet-list-2col">
+                                    <li><i data-lucide="chevron-right"></i> Literary Device Analysis</li>
+                                    <li><i data-lucide="chevron-right"></i> Research Methodology & Citations</li>
+                                    <li><i data-lucide="chevron-right"></i> Argumentative & Persuasive Writing</li>
+                                    <li><i data-lucide="chevron-right"></i> Advanced Grammar & Etymology</li>
+                                </ul>
+                            </div>
+                            <div class="sub-panel" id="m-social">
+                                <h4>Social Sciences</h4>
+                                <p>Understanding systems, markets, and historical connections.</p>
+                                <ul class="bullet-list-2col">
+                                    <li><i data-lucide="chevron-right"></i> World History & Civilizations</li>
+                                    <li><i data-lucide="chevron-right"></i> Macro- & Micro-Economics Concepts</li>
+                                    <li><i data-lucide="chevron-right"></i> Global Geography & Resources</li>
+                                    <li><i data-lucide="chevron-right"></i> Democratic Government & Civics</li>
+                                </ul>
+                            </div>
+                            <div class="sub-panel" id="m-coding">
+                                <h4>Computational Coding</h4>
+                                <p>Building logic, algorithmic thinking, and structural execution.</p>
+                                <ul class="bullet-list-2col">
+                                    <li><i data-lucide="chevron-right"></i> Scratch Block-Based Programming</li>
+                                    <li><i data-lucide="chevron-right"></i> Loop, Conditionals, and Variables</li>
+                                    <li><i data-lucide="chevron-right"></i> Computational Thinking & Logic</li>
+                                    <li><i data-lucide="chevron-right"></i> Basic JavaScript & Python Syntax</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="program-visual-mock">
+                        <div class="curriculum-preview-card glass">
+                            <h4>Program Core Rigor</h4>
+                            <div class="rigor-meter">
+                                <div class="meter-info"><span>Algebra Mastery</span> <span>95%</span></div>
+                                <div class="meter-bar"><div class="meter-fill" style="width: 95%;"></div></div>
+                            </div>
+                            <div class="rigor-meter">
+                                <div class="meter-info"><span>Scientific Inquiry</span> <span>90%</span></div>
+                                <div class="meter-bar"><div class="meter-fill" style="width: 90%;"></div></div>
+                            </div>
+                            <div class="rigor-meter">
+                                <div class="meter-info"><span>Academic Writing</span> <span>88%</span></div>
+                                <div class="meter-bar"><div class="meter-fill" style="width: 88%;"></div></div>
+                            </div>
+                            <div class="rigor-meter">
+                                <div class="meter-info"><span>Computational Logic</span> <span>92%</span></div>
+                                <div class="meter-bar"><div class="meter-fill" style="width: 92%;"></div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STEM Excellence Showcase (3D Interactive Focus) -->
+    <section class="stem-section section-padding" id="stem">
+        <div class="container grid-2">
+            <div class="stem-text-block">
+                <div class="section-badge">STEM PROMINENCE</div>
+                <h2 class="section-title">Fostering Academic <span class="gradient-text">Engineering Thinking</span></h2>
+                <p class="section-desc font-lg">At Apex Scholars, science and mathematics are not static textbook pages. We integrate real-world physical principles and digital simulation platforms directly into our curriculum.</p>
+                <p class="section-desc">Students are introduced to systematic problem solving inspired by modern engineering, physics models, circuit boards, and coding challenges. This instills a scientific workflow: form a hypothesis, design a model, prototype solutions, analyze metrics, and iterate on designs.</p>
+                
+                <div class="stem-features">
+                    <div class="stem-feat-item">
+                        <div class="stem-feat-num">01</div>
+                        <div>
+                            <h4>Robotics & Circuit Mechanics</h4>
+                            <p>Hands-on understanding of logical switches, current, sensors, and structural mechanics.</p>
+                        </div>
+                    </div>
+                    <div class="stem-feat-item">
+                        <div class="stem-feat-num">02</div>
+                        <div>
+                            <h4>Dynamic Simulations</h4>
+                            <p>Using virtual lab environments to observe chemical reactions and physical force interactions in real time.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Secondary Three.js Canvas container for STEM Showcase -->
+            <div class="stem-visual-container">
+                <div class="stem-glass-box glass">
+                    <div class="stem-box-header">
+                        <span class="dot-btn red"></span>
+                        <span class="dot-btn yellow"></span>
+                        <span class="dot-btn green"></span>
+                        <span class="box-title">STEM LAB SIMULATOR v1.0.4</span>
+                    </div>
+                    <div class="stem-canvas-viewport">
+                        <div id="stem-canvas-holder"></div>
+                        <div class="viewport-hud">
+                            <div class="hud-item"><span class="label">MODULE:</span> <span class="val">Quantum Circuit</span></div>
+                            <div class="hud-item"><span class="label">FREQUENCY:</span> <span class="val" id="hud-freq">60Hz</span></div>
+                            <div class="hud-item"><span class="label">INTEGRITY:</span> <span class="val">99.4%</span></div>
+                        </div>
+                        <div class="viewport-controls">
+                            <button id="stem-btn-molecule" class="hud-btn active">Molecule</button>
+                            <button id="stem-btn-wave" class="hud-btn">Wave System</button>
+                            <button id="stem-btn-circuit" class="hud-btn">Digital Node</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Founder Profile Section -->
+    <section class="founder-section section-padding" id="founder">
+        <div class="container grid-2">
+            <!-- Left Side Portrait inside glass frame -->
+            <div class="founder-visual">
+                <div class="portrait-glass-wrapper glass">
+                    <!-- Premium decorative gold frames -->
+                    <div class="frame-accent top-left"></div>
+                    <div class="frame-accent bottom-right"></div>
+                    <img src="founder-portrait.jpg" alt="Lakshay Arora - Founder of Apex Scholars" class="founder-image">
+                    
+                    <div class="floating-achievement-badge glass">
+                        <i data-lucide="award" class="gold-icon"></i>
+                        <div>
+                            <h4>Gold Medalist</h4>
+                            <p>Int. Math Olympiad</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side Profile Info -->
+            <div class="founder-info-block">
+                <div class="section-badge">THE APEX LEADERSHIP</div>
+                <h2 class="section-title">Meet the Founder</h2>
+                <h3 class="founder-name">Lakshay Arora</h3>
+                <p class="founder-subtitle">Founder, Curriculum Architect, & Chief Academic Mentor</p>
+                
+                <p class="section-desc">Lakshay Arora combines exceptional personal academic achievement, hands-on STEM innovation, and a profound dedication to mentorship to create engaging, transformative learning models. Under his direction, Apex Scholars rejects the standard "memorize and repeat" tutoring model, focusing instead on developing deep logical reasoning and a genuine passion for academic investigation.</p>
+                
+                <div class="founder-credentials-grid">
+                    <div class="cred-item">
+                        <div class="cred-icon"><i data-lucide="star"></i></div>
+                        <div>
+                            <h4>98.8% Board Score</h4>
+                            <p>Top national percentile in board examinations</p>
+                        </div>
+                    </div>
+                    <div class="cred-item">
+                        <div class="cred-icon"><i data-lucide="trophy"></i></div>
+                        <div>
+                            <h4>4.0 GPA Academic Record</h4>
+                            <p>Top academic marks and honors</p>
+                        </div>
+                    </div>
+                    <div class="cred-item">
+                        <div class="cred-icon"><i data-lucide="cpu"></i></div>
+                        <div>
+                            <h4>State Innovation Award</h4>
+                            <p>Awarded for excellence in educational technology development</p>
+                        </div>
+                    </div>
+                    <div class="cred-item">
+                        <div class="cred-icon"><i data-lucide="languages"></i></div>
+                        <div>
+                            <h4>Multilingual Instructor</h4>
+                            <p>Facilitating learning across cultural backgrounds</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="founder-bio-quote glass">
+                    <p>"Our goal is to build long-term intellectual stamina. We don't just prepare children for next week's quiz; we give them the analytical blueprints to excel in university-level physics, complex codebases, and global markets."</p>
+                    <span class="quote-author">— Lakshay Arora</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Apex Learning Framework -->
+    <section class="framework-section section-padding" id="framework">
+        <div class="container text-center-header">
+            <div class="section-badge">METHODOLOGY</div>
+            <h2 class="section-title">The Apex Learning Framework</h2>
+            <p class="section-subtitle">Our sequential, data-driven methodology ensures consistent progress and high academic engagement.</p>
+        </div>
+
+        <!-- Interactive Diagram Layout -->
+        <div class="container framework-diagram-wrapper">
+            <div class="framework-steps-grid">
+                <!-- Step 1 -->
+                <div class="framework-step glass active" data-step="1">
+                    <div class="step-num">01</div>
+                    <div class="step-icon"><i data-lucide="clipboard-list"></i></div>
+                    <h3>Diagnostic Assessment</h3>
+                    <p>We analyze the student's mathematical agility, verbal comprehension, reasoning speed, and conceptual foundations to map baseline thresholds.</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="framework-step glass" data-step="2">
+                    <div class="step-num">02</div>
+                    <div class="step-icon"><i data-lucide="fingerprint"></i></div>
+                    <h3>Learning Profile Creation</h3>
+                    <p>We construct a cognitive profile containing the child's academic weaknesses, strength indicators, attention spikes, and personal intellectual interests.</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="framework-step glass" data-step="3">
+                    <div class="step-num">03</div>
+                    <div class="step-icon"><i data-lucide="milestone"></i></div>
+                    <h3>Personalized Roadmap</h3>
+                    <p>A customized trajectory is generated, highlighting clear milestone accomplishments, target timelines, and specialized projects.</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="framework-step glass" data-step="4">
+                    <div class="step-num">04</div>
+                    <div class="step-icon"><i data-lucide="calendar"></i></div>
+                    <h3>Weekly Active Instruction</h3>
+                    <p>Mentors deliver active-learning modules, using conceptual challenges, physical modeling, and coding platforms to explain curriculum topics.</p>
+                </div>
+                <!-- Step 5 -->
+                <div class="framework-step glass" data-step="5">
+                    <div class="step-num">05</div>
+                    <div class="step-icon"><i data-lucide="bar-chart-3"></i></div>
+                    <h3>Progress Analytics</h3>
+                    <p>Weekly metrics and monthly detailed diagnostics track retention, conceptual speed, accuracy, and overall growth parameters.</p>
+                </div>
+                <!-- Step 6 -->
+                <div class="framework-step glass" data-step="6">
+                    <div class="step-num">06</div>
+                    <div class="step-icon"><i data-lucide="rocket"></i></div>
+                    <h3>Academic Acceleration</h3>
+                    <p>As the student achieves mastery, we increase rigor, introducing advanced pre-placement studies, contest math, and independent STEM inquiries.</p>
+                </div>
+            </div>
+
+            <!-- Visualization Panel for Active Step -->
+            <div class="framework-visual-panel glass">
+                <div class="panel-inner" id="framework-panel-target">
+                    <!-- Dynamic injection of step details -->
+                    <div class="panel-visual-graphic">
+                        <div class="pulse-ring"></div>
+                        <i data-lucide="clipboard-list" class="large-panel-icon"></i>
+                    </div>
+                    <div class="panel-text">
+                        <h3>Diagnostic Assessment</h3>
+                        <p class="lead">Every scholar's journey begins with a multi-dimensional diagnostic process.</p>
+                        <p>We do not just check correct answers. We record the student's cognitive steps, tracking how they arrive at conclusions, where their thinking stalls, and their resilience when facing novel, difficult challenges. Parents receive a detailed analysis detailing exact diagnostic findings.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Metrics Dashboard Section -->
+    <section class="metrics-section section-padding" id="metrics">
+        <div class="container grid-2">
+            <div class="metrics-text-block">
+                <div class="section-badge">DASHBOARD & ANALYTICS</div>
+                <h2 class="section-title">Visualizing Success. <br>Our Student Progress Dashboard.</h2>
+                <p class="section-desc">We make academic growth transparent. Through the Apex Portal, parents, mentors, and students trace real-time indicators. Our software tracks student progress, mastery scores, learning consistency, confidence levels, and parent satisfaction rates.</p>
+                
+                <div class="metrics-legend">
+                    <div class="legend-item"><span class="legend-dot math"></span> Mathematics mastery curve</div>
+                    <div class="legend-item"><span class="legend-dot stem"></span> STEM & Inquiry benchmarks</div>
+                    <div class="legend-item"><span class="legend-dot humanities"></span> Literature & Language arts progress</div>
+                </div>
+
+                <div class="metrics-features-list">
+                    <div class="met-feat"><i data-lucide="check-square"></i> Weekly topic completion tracking</div>
+                    <div class="met-feat"><i data-lucide="line-chart"></i> Growth charts against regional benchmarks</div>
+                    <div class="met-feat"><i data-lucide="clock"></i> Consistency clocks and study-streak counters</div>
+                </div>
+            </div>
+
+            <!-- Simulated Portal Interface -->
+            <div class="metrics-visual-portal glass">
+                <div class="portal-header">
+                    <div class="portal-user">
+                        <div class="user-avatar"><i data-lucide="user"></i></div>
+                        <div>
+                            <h4>Wayne</h4>
+                            <p>Grade 3 | Advanced Scholar Track</p>
+                        </div>
+                    </div>
+                    <span class="portal-badge-green"><span class="pulse-dot"></span> Weekly Activity: High</span>
+                </div>
+
+                <div class="portal-body">
+                    <!-- Stats Grid -->
+                    <div class="portal-stats-grid">
+                        <div class="p-stat-box">
+                            <span class="label">Mastery Score</span>
+                            <span class="value accent-text">92.4%</span>
+                        </div>
+                        <div class="p-stat-box">
+                            <span class="label">Weekly Streak</span>
+                            <span class="value text-blue">14 Weeks</span>
+                        </div>
+                        <div class="p-stat-box">
+                            <span class="label">Focus Rating</span>
+                            <span class="value text-green">Excellent</span>
+                        </div>
+                    </div>
+
+                    <!-- SVG Chart Container -->
+                    <div class="portal-chart-box">
+                        <div class="chart-header">
+                            <h5>Academic Growth Curve</h5>
+                            <span class="chart-period">Last 6 Months</span>
+                        </div>
+                        <div class="svg-chart-wrapper">
+                            <svg viewBox="0 0 500 200" class="progress-chart-svg">
+                                <!-- Grid Lines -->
+                                <line x1="50" y1="20" x2="450" y2="20" stroke="rgba(255,255,255,0.05)" />
+                                <line x1="50" y1="70" x2="450" y2="70" stroke="rgba(255,255,255,0.05)" />
+                                <line x1="50" y1="120" x2="450" y2="120" stroke="rgba(255,255,255,0.05)" />
+                                <line x1="50" y1="170" x2="450" y2="170" stroke="rgba(255,255,255,0.05)" />
+                                
+                                <!-- Chart Labels (Y-axis) -->
+                                <text x="25" y="25" class="chart-text">100%</text>
+                                <text x="25" y="75" class="chart-text">75%</text>
+                                <text x="25" y="125" class="chart-text">50%</text>
+                                <text x="25" y="175" class="chart-text">25%</text>
+
+                                <!-- Month Labels (X-axis) -->
+                                <text x="50" y="195" class="chart-text">Jan</text>
+                                <text x="130" y="195" class="chart-text">Feb</text>
+                                <text x="210" y="195" class="chart-text">Mar</text>
+                                <text x="290" y="195" class="chart-text">Apr</text>
+                                <text x="370" y="195" class="chart-text">May</text>
+                                <text x="450" y="195" class="chart-text">Jun</text>
+
+                                <!-- Math Curve Line -->
+                                <path d="M 50 160 L 130 130 L 210 110 L 290 80 L 370 45 L 450 30" fill="none" stroke="var(--primary-blue)" stroke-width="4" stroke-linecap="round" class="chart-path math-path" />
+                                
+                                <!-- STEM Curve Line -->
+                                <path d="M 50 170 L 130 150 L 210 120 L 290 100 L 370 70 L 450 48" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round" class="chart-path stem-path" />
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section section-padding">
+        <div class="container text-center-header">
+            <div class="section-badge">TESTIMONIALS</div>
+            <h2 class="section-title">Success Stories from Apex Families</h2>
+            <p class="section-subtitle">Real feedback from parents who have witnessed structural improvements in their children's grades and confidence levels.</p>
+        </div>
+
+        <div class="container testimonials-carousel-wrapper">
+            <div class="carousel-container">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-slide active">
+                    <div class="rating-stars">
+                        <i data-lucide="star" class="fill-gold"></i>
+                        <i data-lucide="star" class="fill-gold"></i>
+                        <i data-lucide="star" class="fill-gold"></i>
+                        <i data-lucide="star" class="fill-gold"></i>
+                        <i data-lucide="star" class="fill-gold"></i>
+                    </div>
+                    <blockquote class="testimonial-quote">"Before joining Apex Scholars, our 5th-grader was struggling with fractions and basic word problems, which triggered severe math anxiety. Lakshay and his team created a personalized strategy centered around building block math. Within 4 months, not only did his grade leap to an A, but he is now designing computational coding algorithms. The shift in his mindset is incredible."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Stephen</h4>
+                            <p>Father of Wayne and Stephanie</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="testimonial-slide">
+                    <div class="rating-stars">
+                        <i data-lucide="star" class="fill-gold"></i>
+                        <i data-lucide="star" class="fill-gold"></i>
+                        <i data-lucide="star" class="fill-gold"></i>
+                        <i data-lucide="star" class="fill-gold"></i>
+                        <i data-lucide="star" class="fill-gold"></i>
+                    </div>
+                    <blockquote class="testimonial-quote">"The middle school science curriculum here is unmatched. It feels closer to university laboratory concepts. Our daughter completed modules on motion equations and genetics that completely blew us away. She has built an intellectual stamina that makes her school coursework look simple. We cannot recommend Apex Scholars highly enough."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Sonika</h4>
+                            <p>Mother of Raghav</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="testimonial-slide">
+                    <div class="rating-stars">
+                        <i data-lucide="star" class="fill-gold"></i>
+                        <i data-lucide="star" class="fill-gold"></i>
+                        <i data-lucide="star" class="fill-gold"></i>
+                        <i data-lucide="star" class="fill-gold"></i>
+                        <i data-lucide="star" class="fill-gold"></i>
+                    </div>
+                    <blockquote class="testimonial-quote">"We tried several tutoring platforms, but they felt like homework assembly lines. Apex Scholars is entirely different. They designed a reading and vocabulary path that connected writing prompts with our son's passion for astronomical physics. He went from avoiding reading to self-selecting science novels. This is true customized mentorship."</blockquote>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>Samita</h4>
+                            <p>Mother of Raman</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel Nav -->
+            <div class="carousel-nav">
+                <button class="carousel-prev" aria-label="Previous slide"><i data-lucide="chevron-left"></i></button>
+                <div class="carousel-dots">
+                    <span class="carousel-dot active" data-index="0"></span>
+                    <span class="carousel-dot" data-index="1"></span>
+                    <span class="carousel-dot" data-index="2"></span>
+                </div>
+                <button class="carousel-next" aria-label="Next slide"><i data-lucide="chevron-right"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section section-padding" id="faq">
+        <div class="container grid-2">
+            <div class="faq-header-block">
+                <div class="section-badge">FREQUENTLY ASKED QUESTIONS</div>
+                <h2 class="section-title">Answering Your Questions</h2>
+                <p class="section-desc">Have questions about our academic structure, scheduling, or customization process? Read our quick reference answers here.</p>
+                <div class="faq-cta-box glass">
+                    <h4>Have a specific inquiry?</h4>
+                    <p>Speak directly with our academic advisor to discuss your child's goals.</p>
+                    <a href="#contact" class="btn btn-secondary">Contact Support</a>
+                </div>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div class="faq-accordion">
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>What ages do you support?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>We support students starting from age 4 (Pre-Elementary/Pre-K) up through Grade 8 (Middle School graduation). Our curricular modules are divided into three distinct development tracks (Early Learners, Elementary Success, and Middle School Achievement) to ensure age-appropriate cognitive challenges.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>What subjects do you teach?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Our core academy provides curriculum across a wide array of disciplines, including Advanced Mathematics (Arithmetic, Algebra, Geometry), Natural Sciences (Physics, Chemistry, Biology), Language Arts (Literature Analysis, Grammar, Academic Writing), Social Sciences (Geography, Economics, History, Government), and Computational Thinking/Coding (Scratch, Logic, Algorithms).</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>How are lessons personalized?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Every student undergoes our multi-dimensional diagnostic assessment. We analyze concept gaps, reading pace, and attention triggers. Then, we build a custom curriculum path. Finally, we map this path to the student's personal interests (e.g., sport statistics, space exploration, structural design) to keep engagement levels and conceptual retention high.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>Do you offer online instruction?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Yes, we provide premium online learning portals with interactive digital whiteboards, coding environments, and 3D simulation showcases. We also offer physical, localized individual instruction depending on tutor availability and regional hubs.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>How is progress measured?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>We utilize a data-driven progress dashboard. Every lesson records accuracy rates, difficulty levels reached, accuracy curves, and concentration indexes. We update parents weekly through the digital portal and host structured monthly progress alignment reviews.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-trigger">
+                        <span>What makes Apex Scholars different?</span>
+                        <i data-lucide="chevron-down"></i>
+                    </button>
+                    <div class="faq-content">
+                        <p>Traditional tutoring is reactive: a student brings homework, a tutor helps them solve it, and the lesson ends. Apex Scholars is proactive. We construct a complete, long-term learning ecosystem, emphasizing critical thinking methodologies, advanced STEM engineering systems, and real academic mentorship that prepares students for long-term intellectual independence.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section class="contact-section section-padding" id="contact">
+        <div class="container grid-2">
+            <div class="contact-text-block">
+                <div class="section-badge">ADMISSIONS & CONSULTATION</div>
+                <h2 class="section-title">Unlock Your Student's Full Potential</h2>
+                <p class="section-desc font-lg">Initiate the transition to personalized academic success. Schedule a free, comprehensive diagnostic assessment with our educational directors.</p>
+                
+                <div class="consult-perks">
+                    <div class="perk-item">
+                        <i data-lucide="clock-4" class="text-blue"></i>
+                        <div>
+                            <h4>45-Min Diagnostic</h4>
+                            <p>Detailed evaluation of core mathematical, logical, and verbal profiles.</p>
+                        </div>
+                    </div>
+                    <div class="perk-item">
+                        <i data-lucide="file-text" class="text-blue"></i>
+                        <div>
+                            <h4>Cognitive Analysis Report</h4>
+                            <p>Receive a comprehensive breakdown of conceptual gaps and strengths.</p>
+                        </div>
+                    </div>
+                    <div class="perk-item">
+                        <i data-lucide="shield-check" class="text-blue"></i>
+                        <div>
+                            <h4>No Obligations</h4>
+                            <p>The assessment is completely free, with no commitment to enroll.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lead Form Box -->
+            <div class="contact-form-wrapper glass">
+                <h3 class="form-title">Request Academic Consultation</h3>
+                <p class="form-subtitle">Fill out the fields below, and our program coordinator will contact you within 24 business hours.</p>
+                
+                <form id="consultation-form" action="#" class="consultation-form">
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="parent-name">Parent / Guardian Name *</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="user"></i>
+                                <input type="text" id="parent-name" required placeholder="e.g. Elena Rostova">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="student-name">Student Name *</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="smile"></i>
+                                <input type="text" id="student-name" required placeholder="e.g. Maxim Rostova">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="grade-level">Grade Level *</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="graduation-cap"></i>
+                                <select id="grade-level" required>
+                                    <option value="" disabled selected>Select level</option>
+                                    <option value="prek-2">Pre-K to Grade 2</option>
+                                    <option value="grades-3-5">Grades 3-5</option>
+                                    <option value="grades-6-8">Grades 6-8</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject-interest">Primary Subject Interest *</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="book-open"></i>
+                                <select id="subject-interest" required>
+                                    <option value="" disabled selected>Select subject</option>
+                                    <option value="math">Advanced Mathematics</option>
+                                    <option value="stem">STEM / Inquiry Science</option>
+                                    <option value="english">English Language Arts</option>
+                                    <option value="coding">Computational Coding</option>
+                                    <option value="all">Complete Ecosystem (All Core)</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="learning-goals">Specific Learning Goals & Challenges *</label>
+                        <div class="input-wrapper textarea-wrapper">
+                            <i data-lucide="edit-3"></i>
+                            <textarea id="learning-goals" required placeholder="Describe your student's academic goals, gaps, strengths, or current interests..." rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-grid-2">
+                        <div class="form-group">
+                            <label for="parent-email">Email Address *</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="mail"></i>
+                                <input type="email" id="parent-email" required placeholder="e.g. elena@example.com">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="parent-phone">Phone Number *</label>
+                            <div class="input-wrapper">
+                                <i data-lucide="phone"></i>
+                                <input type="tel" id="parent-phone" required placeholder="e.g. +1 (555) 019-2834">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Schedule Your Free Academic Consultation</button>
+                </form>
+                
+                <!-- Success State Overlay -->
+                <div class="form-success-overlay glass">
+                    <i data-lucide="check-circle" class="success-icon text-green"></i>
+                    <h3>Consultation Request Received!</h3>
+                    <p>Thank you. We have logged your student profile. Our curriculum director will contact you via email or phone within 24 business hours to lock in your calendar slot.</p>
+                    <button class="btn btn-secondary" id="btn-reset-form">Submit another request</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="main-footer section-padding">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <a href="#" class="logo">
+                    <span class="logo-icon"><i data-lucide="graduation-cap"></i></span>
+                    <span class="logo-text">APEX <span class="accent-text">SCHOLARS</span></span>
+                </a>
+                <p class="footer-desc">Building future scholars through mathematical agility, advanced STEM engineering thinking, writing competence, and custom academic mentorship.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i data-lucide="facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                    <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-nav-col">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="#programs">Early Learners Track</a></li>
+                    <li><a href="#programs">Elementary Success Track</a></li>
+                    <li><a href="#programs">Middle School Achievement</a></li>
+                    <li><a href="#stem">STEM Laboratory</a></li>
+                    <li><a href="#programs">Computational Coding</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav-col">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#metrics">Progress Portal</a></li>
+                    <li><a href="#">Academic Blog</a></li>
+                    <li><a href="#">Parent Guides</a></li>
+                    <li><a href="#">Fractions Cheat-Sheets</a></li>
+                    <li><a href="#">STEM Worksheets</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav-col">
+                <h4>Parent Support</h4>
+                <ul>
+                    <li><a href="#contact">Schedule Assessment</a></li>
+                    <li><a href="#faq">FAQ Reference</a></li>
+                    <li><a href="#">Portal Login</a></li>
+                    <li><a href="#">Curricular Standards</a></li>
+                    <li><a href="#">Tuition & Plans</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-nav-col">
+                <h4>Academy Info</h4>
+                <ul>
+                    <li><a href="#about">About Our Mission</a></li>
+                    <li><a href="#founder">Meet Lakshay Arora</a></li>
+                    <li><a href="#why-us">The Apex Methodology</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#contact">Contact Admissions</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container footer-bottom">
+            <p class="copyright">&copy; 2026 Apex Scholars LLC. All Rights Reserved.</p>
+            <div class="footer-legal">
+                <a href="#">Privacy Policy</a>
+                <span class="divider">|</span>
+                <a href="#">Terms of Service</a>
+                <span class="divider">|</span>
+                <a href="#">Sitemap</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Core Scripts -->
+    <script src="three-scene.js"></script>
+    <script src="animations.js"></script>
+</body>
+</html>
